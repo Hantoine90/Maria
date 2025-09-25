@@ -2,267 +2,147 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>🎂 Feliz Cumpleaños María Isabel 🎉</title>
+  <title>🎉 Feliz Cumpleaños 🎂</title>
 
-  <!-- Open Graph (vista previa tarjeta) -->
-  <meta property="og:title" content="🎉 Feliz Cumpleaños María Isabel 🎂">
-  <meta property="og:description" content="Un detalle muy especial para ti, con música, luces y confeti 🎶🎆🎊">
+  <!-- Open Graph (para vista previa tipo tarjeta al compartir el link) -->
+  <meta property="og:title" content="🎂 Feliz Cumpleaños María Isabel 🎉">
+  <meta property="og:description" content="Una sorpresa especial con cariño 💖✨">
   <meta property="og:image" content="maria.jpg">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://tupagina.com/cumple.html">
 
   <style>
     body {
       margin: 0;
       height: 100vh;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      background: #0d0d1a; /* noche */
+      background: linear-gradient(135deg, #ffdde1, #ff9a9e, #fad0c4, #fbc2eb);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
       overflow: hidden;
-      text-align: center;
     }
 
-    h1 {
-      font-size: 4em;
+    .titulo {
+      font-size: 4.5em;
+      font-weight: bold;
       color: #fff;
-      text-shadow: 2px 2px 15px #ff0;
-      animation: latido 1.5s infinite;
-      margin: 20px;
+      text-shadow: 3px 3px 6px #00000055;
+      animation: brillo 2s infinite alternate;
+      margin: 0;
     }
 
-    @keyframes latido {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-      100% { transform: scale(1); }
+    .nombre {
+      font-size: 3.5em;
+      font-weight: bold;
+      color: #ffe600;
+      text-shadow: 2px 2px 6px #000;
+      margin: 10px 0 30px 0;
+      animation: saltar 1.5s infinite;
+    }
+
+    .foto {
+      width: 320px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      margin-bottom: 25px;
     }
 
     .frase {
       font-size: 1.8em;
+      text-align: center;
       color: #fff;
+      max-width: 800px;
       margin: 20px;
-      max-width: 90%;
-      line-height: 1.6em;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 20px;
-      border-radius: 20px;
-      border: 2px solid #ff0;
-      box-shadow: 0 0 20px rgba(255,255,0,0.7);
-      animation: aparecer 3s ease-in-out infinite alternate;
+      line-height: 1.5;
+      text-shadow: 2px 2px 5px #00000080;
     }
 
-    @keyframes aparecer {
-      from { opacity: 0.7; }
-      to { opacity: 1; }
-    }
-
-    img {
-      border-radius: 20px;
-      width: 85%;
-      max-width: 480px;
-      height: auto;
-      margin-top: 25px;
-      box-shadow: 0 0 40px #ff0;
-      animation: brillar 2s infinite alternate;
-    }
-
-    @keyframes brillar {
-      from { box-shadow: 0 0 25px #fff; }
-      to { box-shadow: 0 0 50px #ff0; }
-    }
-
-    /* Botón con imagen */
-    .btn-musica {
-      margin-top: 35px;
-      padding: 20px 40px;
-      font-size: 1.6em;
-      font-weight: bold;
-      color: white;
-      border: 3px solid #fff;
-      border-radius: 35px;
+    .boton-musica {
+      display: flex;
+      align-items: center;
+      background: #ff4081;
+      color: #fff;
+      border: none;
+      padding: 15px 25px;
+      font-size: 1.3em;
+      border-radius: 15px;
       cursor: pointer;
-      background: url('cumplesalsa.jpg') center/cover no-repeat;
-      box-shadow: 0 0 25px #ff4081, 0 0 30px #fff inset;
-      transition: all 0.3s ease;
-    }
-    .btn-musica:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 40px #ff0, 0 0 45px #fff inset;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+      margin-top: 20px;
+      transition: transform 0.2s, background 0.3s;
     }
 
-    /* Responsive */
-    @media (max-width: 600px) {
-      h1 { font-size: 2.8em; }
-      .frase { font-size: 1.3em; padding: 15px; }
-      .btn-musica { font-size: 1.2em; padding: 15px 25px; }
-      img { max-width: 350px; }
+    .boton-musica:hover {
+      background: #e91e63;
+      transform: scale(1.05);
     }
 
-    /* Canvas fuegos artificiales */
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
+    .boton-musica img {
+      width: 40px;
+      margin-right: 12px;
+    }
+
+    @keyframes brillo {
+      from { text-shadow: 3px 3px 10px #ff0; }
+      to { text-shadow: 3px 3px 20px #fff; }
+    }
+
+    @keyframes saltar {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
     }
 
     /* Confeti */
     .confeti {
-      position: fixed;
-      width: 10px;
-      height: 10px;
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: red;
       top: -10px;
-      animation: caer 5s linear infinite;
-      z-index: 2;
+      animation: caer linear infinite;
+      opacity: 0.8;
     }
 
     @keyframes caer {
-      0% { transform: translateY(-10px) rotate(0deg); }
-      100% { transform: translateY(110vh) rotate(720deg); }
+      to {
+        transform: translateY(110vh) rotate(720deg);
+      }
     }
   </style>
 </head>
 <body>
+  <h1 class="titulo">🎉 Feliz Cumpleaños 🎂</h1>
+  <h2 class="nombre">María Isabel 💖</h2>
 
-  <h1>🎉 Feliz Cumpleaños María Isabel 🎂</h1>
-  <div class="frase">Que este día esté lleno de alegría, sorpresas y mucho amor 💖✨</div>
-  <img src="maria.jpg" alt="Foto de María Isabel">
-  <div class="frase">“Querida María Isabel, en este día tan especial celebro no solo tu cumpleaños, sino también la dicha de tener una amiga tan valiosa como tú. Que la vida te regale siempre sonrisas, abrazos sinceros y sueños cumplidos, porque te mereces lo mejor del mundo. 💖🎂🌟”</div>
+  <img src="maria.jpg" alt="Foto de María Isabel" class="foto">
 
-  <!-- Botón para reproducir -->
-  <button class="btn-musica" onclick="reproducirMusica()">🎶 ¡Reprodúceme!</button>
+  <p class="frase">
+    Querida María Isabel, en este día tan especial celebro no solo tu cumpleaños, 
+    sino también la dicha de tener una amiga tan valiosa como tú. 
+    Que la vida te regale siempre sonrisas, abrazos sinceros y sueños cumplidos, 
+    porque te mereces lo mejor del mundo. 🌹✨
+  </p>
 
-  <!-- Música -->
-  <audio id="musica">
-    <source src="cumple.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio.
-  </audio>
+  <button class="boton-musica" onclick="document.getElementById('musica').play()">
+    <img src="cumplesalsa.jpg" alt="🎶">
+    🎶 ¡Reprodúceme!
+  </button>
 
-  <!-- Fuegos artificiales canvas -->
-  <canvas id="fuegos"></canvas>
+  <audio id="musica" src="cumple.mp3"></audio>
 
   <script>
-    function reproducirMusica() {
-      document.getElementById("musica").play();
-    }
-
-    // ====== Confeti ======
-    const colores = ["#ff0", "#f0f", "#0ff", "#0f0", "#f00", "#00f", "#ffa500"];
+    // Generar confeti
     for (let i = 0; i < 50; i++) {
       let confeti = document.createElement("div");
       confeti.classList.add("confeti");
       confeti.style.left = Math.random() * 100 + "vw";
-      confeti.style.backgroundColor = colores[Math.floor(Math.random() * colores.length)];
-      confeti.style.animationDuration = (3 + Math.random() * 5) + "s";
-      confeti.style.opacity = Math.random();
-      confeti.style.transform = `rotate(${Math.random() * 360}deg)`;
+      confeti.style.backgroundColor = 
+        ["#ff0", "#ff4081", "#00e5ff", "#69f0ae", "#ff9100"][Math.floor(Math.random()*5)];
+      confeti.style.animationDuration = (Math.random() * 3 + 2) + "s";
       document.body.appendChild(confeti);
     }
-
-    // ====== Fuegos artificiales ======
-    const canvas = document.getElementById('fuegos');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    const fireworks = [];
-    let particles = [];
-
-    function random(min, max) { return Math.random() * (max - min) + min; }
-
-    class Firework {
-      constructor() {
-        this.x = random(0, canvas.width);
-        this.y = canvas.height;
-        this.sx = this.x; this.sy = this.y;
-        this.tx = random(0, canvas.width);
-        this.ty = random(0, canvas.height/2);
-        this.distanceToTarget = Math.hypot(this.tx - this.sx, this.ty - this.sy);
-        this.distanceTraveled = 0;
-        this.coordinates = Array(3).fill([this.x, this.y]);
-        this.angle = Math.atan2(this.ty - this.sy, this.tx - this.sx);
-        this.speed = 2;
-        this.acceleration = 1.05;
-        this.brightness = random(50, 70);
-      }
-      update(index) {
-        this.coordinates.pop();
-        this.coordinates.unshift([this.x, this.y]);
-        this.speed *= this.acceleration;
-        let vx = Math.cos(this.angle) * this.speed;
-        let vy = Math.sin(this.angle) * this.speed;
-        this.distanceTraveled = Math.hypot(this.x - this.sx, this.y - this.sy);
-        if (this.distanceTraveled >= this.distanceToTarget) {
-          createParticles(this.tx, this.ty);
-          fireworks.splice(index, 1);
-        } else { this.x += vx; this.y += vy; }
-      }
-      draw() {
-        ctx.beginPath();
-        ctx.moveTo(this.coordinates[this.coordinates.length -1][0], this.coordinates[this.coordinates.length -1][1]);
-        ctx.lineTo(this.x, this.y);
-        ctx.strokeStyle = `hsl(${random(0,360)},100%,${this.brightness}%)`;
-        ctx.stroke();
-      }
-    }
-
-    class Particle {
-      constructor(x,y) {
-        this.x = x; this.y = y;
-        this.coordinates = Array(5).fill([this.x,this.y]);
-        this.angle = random(0, Math.PI*2);
-        this.speed = random(1,10);
-        this.friction = 0.95;
-        this.gravity = 1;
-        this.hue = random(0,360);
-        this.brightness = random(50,80);
-        this.alpha = 1;
-        this.decay = random(0.015,0.03);
-      }
-      update(index){
-        this.coordinates.pop();
-        this.coordinates.unshift([this.x, this.y]);
-        this.speed *= this.friction;
-        this.x += Math.cos(this.angle) * this.speed;
-        this.y += Math.sin(this.angle) * this.speed + this.gravity;
-        this.alpha -= this.decay;
-        if(this.alpha <= 0.1){ particles.splice(index,1); }
-      }
-      draw(){
-        ctx.beginPath();
-        ctx.moveTo(this.coordinates[this.coordinates.length -1][0], this.coordinates[this.coordinates.length -1][1]);
-        ctx.lineTo(this.x, this.y);
-        ctx.strokeStyle = `hsla(${this.hue},100%,${this.brightness}%,${this.alpha})`;
-        ctx.stroke();
-      }
-    }
-
-    function createParticles(x,y){
-      for (let i=0; i<50; i++){ particles.push(new Particle(x,y)); }
-    }
-
-    function loop(){
-      requestAnimationFrame(loop);
-      ctx.globalCompositeOperation = 'destination-out';
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
-      ctx.fillRect(0,0,canvas.width,canvas.height);
-      ctx.globalCompositeOperation = 'lighter';
-
-      fireworks.forEach((fw,i) => { fw.draw(); fw.update(i); });
-      particles.forEach((p,i) => { p.draw(); p.update(i); });
-
-      if(Math.random() < 0.05){ fireworks.push(new Firework()); }
-    }
-    loop();
-
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
   </script>
-
 </body>
 </html>
