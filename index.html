@@ -25,7 +25,7 @@
 
     h1 {
       font-size: 3em;
-      color: #111; /* más oscuro */
+      color: #111;
       text-shadow: 2px 2px 6px #fff;
       animation: latido 1.5s infinite;
     }
@@ -38,12 +38,12 @@
 
     .frase {
       font-size: 1.4em;
-      color: #222; /* tono oscuro */
+      color: #222;
       margin: 20px;
       text-align: center;
       max-width: 80%;
       line-height: 1.5em;
-      background: rgba(255, 255, 255, 0.6); /* fondo semitransparente */
+      background: rgba(255, 255, 255, 0.6);
       padding: 15px;
       border-radius: 15px;
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
@@ -69,7 +69,25 @@
       to { box-shadow: 0 0 30px #ff0; }
     }
 
-    /* Confetis animados */
+    /* Botón reproducir */
+    .btn-musica {
+      margin-top: 25px;
+      padding: 12px 25px;
+      font-size: 1.2em;
+      background: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
+    }
+    .btn-musica:hover {
+      transform: scale(1.1);
+      background: #e91e63;
+    }
+
+    /* Confetis */
     .confeti {
       position: fixed;
       width: 10px;
@@ -92,8 +110,11 @@
   <img src="maria.jpg" alt="Foto de María Isabel">
   <div class="frase">“Querida María Isabel, en este día tan especial celebro no solo tu cumpleaños, sino también la dicha de tener una amiga tan valiosa como tú. Que la vida te regale siempre sonrisas, abrazos sinceros y sueños cumplidos, porque te mereces lo mejor del mundo. 💖🎂🌟”</div>
 
+  <!-- Botón para reproducir -->
+  <button class="btn-musica" onclick="reproducirMusica()">▶️ Feliz Cumpleaños</button>
+
   <!-- Música -->
-  <audio autoplay loop>
+  <audio id="musica">
     <source src="cumple.mp3" type="audio/mpeg">
     Tu navegador no soporta audio.
   </audio>
@@ -111,8 +132,11 @@
       confeti.style.transform = `rotate(${Math.random() * 360}deg)`;
       document.body.appendChild(confeti);
     }
+
+    function reproducirMusica() {
+      document.getElementById("musica").play();
+    }
   </script>
 
 </body>
 </html>
-
